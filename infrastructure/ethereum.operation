@@ -1,0 +1,17 @@
+import technology from "../technology/ethereum.technology" as Ethereum
+import nodes from "../Booking Management Microservice/command-side/bookingManagement.operation" as BookingManagementCommandSide
+import nodes from "../Booking Management Microservice/query-side/bookingManagement.operation" as BookingManagementQuerySide
+
+@technology(Ethereum)
+Ethereum is Ethereum:: _infrastructure.EthereumBlockchain 
+	used by nodes 
+		BookingManagementCommandSide::BookingManagementCommandContainer,
+		BookingManagementQuerySide::BookingManagementQueryContainer
+	{
+		
+		default values {
+			blockchainNetworkHostname = "http://localhost"
+			blockchainNetworkPort = "8545"
+		}
+	
+	}
